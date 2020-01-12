@@ -1,0 +1,35 @@
+<form [formGroup]="shelterFormGroup" class="shelter-form">
+  <mat-form-field>
+    <input matInput type="text" placeholder="Name" formControlName="name" required>
+    <mat-hint align="end">The name of the shelter</mat-hint>
+    <mat-error *ngIf="shelterFormGroup.controls.name.hasError('required')">Name is required</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="Street" formControlName="street" required>
+    <mat-hint align="end">The street of the shelter</mat-hint>
+    <mat-error *ngIf="shelterFormGroup.controls.street.hasError('required')">Street is required</mat-error>
+    <mat-error *ngIf="shelterFormGroup.controls.street.hasError('badWord')">Street contains "bad word"</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="City" formControlName="city" required>
+    <mat-hint align="end">The city of the shelter</mat-hint>
+    <mat-error *ngIf="shelterFormGroup.controls.city.hasError('required')">City is required</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" placeholder="Postcode" formControlName="postcode" required>
+    <mat-hint align="end">The postcode of the shelter</mat-hint>
+    <mat-error *ngIf="shelterFormGroup.controls.postcode.hasError('required')">Postcode is required</mat-error>
+    <mat-error *ngIf="shelterFormGroup.controls.postcode.hasError('max')">Postcode is to long</mat-error>
+    <mat-error *ngIf="shelterFormGroup.controls.postcode.hasError('min')">Postcode is to short</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-checkbox formControlName="healthcare">Healthcare available?</mat-checkbox>
+  <br/>
+  <mat-card-actions align="center">
+    <button mat-raised-button color="primary" [disabled]="!shelterFormGroup.valid" (click)="createShelter()">
+      <span *ngIf="!shelterFormGroup.controls.id.value">Create</span>
+      <span *ngIf="shelterFormGroup.controls.id.value">Update</span>
+    </button>
+  </mat-card-actions>
+</form>
+

@@ -1,0 +1,15 @@
+[
+  {
+    "model": "shelter.animal",
+    "pk": 1,
+    "fields": {
+      "name": "Wuffi",
+      "species": 1,
+      "spayed": null,
+      "entry_date": null,
+      "age": 5,
+      "shelter": 2,
+      "caregiver": [1]
+    }
+  }
+]

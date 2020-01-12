@@ -1,0 +1,33 @@
+<mat-toolbar *ngIf="isLoggedIn">
+  <button mat-button
+          [matMenuTriggerFor]="animalMenu">Animal</button>
+  <mat-menu #animalMenu="matMenu">
+    <button mat-menu-item routerLink="animal-list">List
+      animals</button>
+    <button mat-menu-item routerLink="animal-form">Create
+      animal</button>
+  </mat-menu>
+  <button mat-button
+          [matMenuTriggerFor]="shelterMenu">Shelter</button>
+  <mat-menu #shelterMenu="matMenu">
+    <button mat-menu-item routerLink="shelter-list">List
+      shelters</button>
+    <button mat-menu-item routerLink="shelter-form">Create
+      shelter</button>
+  </mat-menu>
+  <app-logout></app-logout>
+</mat-toolbar>
+<router-outlet></router-outlet>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<agm-map [latitude]="latitude" [longitude]="longitude"></agm-map>

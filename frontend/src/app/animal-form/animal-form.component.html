@@ -1,0 +1,68 @@
+<form [formGroup]="animalFormGroup" class="animal-form">
+  <mat-form-field>
+    <input matInput type="name" placeholder="Name" formControlName="name" required>
+    <mat-hint align="end">The name of the animal</mat-hint>
+    <mat-error *ngIf="animalFormGroup.controls.name.hasError('required')">Name is required</mat-error>
+    <!-- <mat-error *ngIf="animalFormGroup.controls.title.hasError('title')">Title already exists</mat-error> -->
+
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Species"
+                formControlName="species" required>
+      <mat-option [value]="null">Unknown</mat-option>
+      <mat-option [value]="speciesOption.id" *ngFor="let speciesOption of speciesOptions">{{speciesOption.name}}</mat-option>
+    </mat-select>
+    <mat-hint align="end">The species of the animal</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Spayed" formControlName="spayed">
+      <mat-option [value]="spayed.key"
+                  *ngFor="let spayed of spayedService.opNames | keyvalue">{{spayed.value}}</mat-option>
+    </mat-select>
+    <mat-hint align="end">Animal is spayed?</mat-hint>
+  </mat-form-field>
+  <app-date placeholder="Entry date" formControlName="entry_date" hint="The entry date of the animal"
+            [required]="true"></app-date>
+  <!-- <mat-form-field>
+    <input matInput type="number" placeholder="Age" formControlName="age">
+    <mat-hint align="end">The age of the animal</mat-hint>
+    <mat-error *ngIf="animalFormGroup.controls.age.hasError('max')">
+      Age is too high
+    </mat-error>
+  </mat-form-field> -->
+  <br>
+  <mat-hint>Age</mat-hint>
+  <mat-slider formControlName="age"
+    thumbLabel
+    [displayWith]="formatLabel"
+    tickInterval="1"
+    min="1"
+    max="50">
+  </mat-slider>
+  <mat-form-field>
+    <mat-select placeholder="Shelter"
+                formControlName="shelter" required>
+      <mat-option [value]="null">Unknown</mat-option>
+      <mat-option [value]="shelterOption.id" *ngFor="let shelterOption of shelterOptions">{{shelterOption.name}}</mat-option>
+    </mat-select>
+    <mat-hint align="end">The shelter of the animal</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Caregiver"
+                formControlName="caregiver" multiple>
+      <mat-option [value]="null">Unknown</mat-option>
+      <mat-option [value]="caregiverOption.id" *ngFor="let caregiverOption of caregiverOptions">{{caregiverOption.first_name}} {{caregiverOption.last_name}}</mat-option>
+    </mat-select>
+    <mat-hint align="end">The caregivers of the animal</mat-hint>
+  </mat-form-field>
+
+  <br/>
+  <mat-card-actions align="center">
+    <button mat-raised-button color="primary" [disabled]="!animalFormGroup.valid" (click)="createAnimal()">
+      <span *ngIf="!animalFormGroup.controls.id.value">Create</span>
+      <span *ngIf="animalFormGroup.controls.id.value">Update</span>
+    </button>
+  </mat-card-actions>
+</form>
+

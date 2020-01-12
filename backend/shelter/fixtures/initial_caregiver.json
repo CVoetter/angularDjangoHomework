@@ -1,0 +1,25 @@
+[
+  {
+    "model": "shelter.caregiver",
+    "pk": 1,
+    "fields": {
+      "first_name": "Claudia",
+      "last_name": "Voetter",
+      "year_of_birth": 1998,
+      "workplace": 1,
+      "trained": true
+
+    }
+  },
+  {
+    "model": "shelter.caregiver",
+    "pk":2,
+    "fields": {
+      "first_name": "Lisa",
+      "last_name": "Huber",
+      "year_of_birth": 1960,
+      "workplace": 1,
+      "trained": false
+    }
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "model": "shelter.species",
+    "pk": 1,
+    "fields": {
+      "name": "Hund"
+    }
+  },
+  {
+    "model": "shelter.species",
+    "pk": 2,
+    "fields": {
+      "name": "Katze"
+    }
+  }
+]

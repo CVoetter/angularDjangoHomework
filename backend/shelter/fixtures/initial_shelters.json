@@ -1,0 +1,24 @@
+[
+  {
+    "model": "shelter.shelter",
+    "pk": 1,
+    "fields": {
+      "name": "Tierheim Trieben",
+      "street": "Austein 34",
+      "city": "Trieben",
+      "postcode": 8784,
+      "healthcare": false
+    }
+  },
+  {
+    "model": "shelter.shelter",
+    "pk": 2,
+    "fields": {
+      "name": "Tierheim Rottenmann",
+      "street": "Hallo 12",
+      "city": "Rottenmann",
+      "postcode": 8790,
+      "healthcare": true
+    }
+  }
+]
